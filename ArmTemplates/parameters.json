@@ -5,10 +5,10 @@
         "applicationGateways_appgw2_name": {
             "value": null
         },
-        "virtualNetworks_se_abs_vnet_aueast1_externalid": {
+        "virtualNetworks_se_contoso_vnet_aueast1_externalid": {
             "value": null
         },
-        "publicIPAddresses_se_abs_aueast_pip1_externalid": {
+        "publicIPAddresses_se_contoso_aueast_pip1_externalid": {
             "value": null
         }
     }
