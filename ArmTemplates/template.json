@@ -3,15 +3,15 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "applicationGateways_appgw2_name": {
-            "defaultValue": "appgw2",
+            "defaultValue": "contosoappgw2",
             "type": "String"
         },
-        "virtualNetworks_se_abs_vnet_aueast1_externalid": {
-            "defaultValue": "/subscriptions/e7752f09-24a1-4b14-9931-6a56d4f6109d/resourceGroups/seAbsDipaRG/providers/Microsoft.Network/virtualNetworks/se-abs-vnet-aueast1",
+        "virtualNetworks_se_contoso_vnet_aueast1_externalid": {
+            "defaultValue": "/subscriptions/f0002f09-f000-a000-b000-2226d4f61000/resourceGroups/contoso/providers/Microsoft.Network/virtualNetworks/contoso-vnet-aueast1",
             "type": "String"
         },
-        "publicIPAddresses_se_abs_aueast_pip1_externalid": {
-            "defaultValue": "/subscriptions/e7752f09-24a1-4b14-9931-6a56d4f6109d/resourceGroups/seAbsDipaRG/providers/Microsoft.Network/publicIPAddresses/se-abs-aueast-pip1",
+        "publicIPAddresses_se_contoso_aueast_pip1_externalid": {
+            "defaultValue": "/subscriptions/f0002f09-f000-a000-b000-2226d4f61000/resourceGroups/contoso/providers/Microsoft.Network/publicIPAddresses/contoso-aueast-pip1",
             "type": "String"
         }
     },
@@ -33,14 +33,14 @@
                         "name": "appGatewayIpConfig",
                         "properties": {
                             "subnet": {
-                                "id": "[concat(parameters('virtualNetworks_se_abs_vnet_aueast1_externalid'), '/subnets/default')]"
+                                "id": "[concat(parameters('virtualNetworks_se_contoso_vnet_aueast1_externalid'), '/subnets/default')]"
                             }
                         }
                     }
                 ],
                 "sslCertificates": [
                     {
-                        "name": "website1.devopsint.com",
+                        "name": "website1.contoso.com",
                         "properties": {}
                     }
                 ],
@@ -51,7 +51,7 @@
                         "properties": {
                             "privateIPAllocationMethod": "Dynamic",
                             "publicIPAddress": {
-                                "id": "[parameters('publicIPAddresses_se_abs_aueast_pip1_externalid')]"
+                                "id": "[parameters('publicIPAddresses_se_contoso_aueast_pip1_externalid')]"
                             }
                         }
                     },
@@ -61,7 +61,7 @@
                             "privateIPAddress": "10.2.0.4",
                             "privateIPAllocationMethod": "Static",
                             "subnet": {
-                                "id": "[concat(parameters('virtualNetworks_se_abs_vnet_aueast1_externalid'), '/subnets/default')]"
+                                "id": "[concat(parameters('virtualNetworks_se_contoso_vnet_aueast1_externalid'), '/subnets/default')]"
                             }
                         }
                     }
@@ -76,11 +76,11 @@
                 ],
                 "backendAddressPools": [
                     {
-                        "name": "seabsdipablob.z24.web.core.windows.net",
+                        "name": "secontosodipablob.z24.web.core.windows.net",
                         "properties": {
                             "backendAddresses": [
                                 {
-                                    "fqdn": "seabsdipablob.z24.web.core.windows.net"
+                                    "fqdn": "secontosodipablob.z24.web.core.windows.net"
                                 }
                             ]
                         }
@@ -114,7 +114,7 @@
                             },
                             "protocol": "Https",
                             "sslCertificate": {
-                                "id": "[concat(resourceId('Microsoft.Network/applicationGateways', parameters('applicationGateways_appgw2_name')), '/sslCertificates/website1.devopsint.com')]"
+                                "id": "[concat(resourceId('Microsoft.Network/applicationGateways', parameters('applicationGateways_appgw2_name')), '/sslCertificates/website1.contoso.com')]"
                             },
                             "hostNames": [],
                             "requireServerNameIndication": false
@@ -131,7 +131,7 @@
                                 "id": "[concat(resourceId('Microsoft.Network/applicationGateways', parameters('applicationGateways_appgw2_name')), '/httpListeners/listener1')]"
                             },
                             "backendAddressPool": {
-                                "id": "[concat(resourceId('Microsoft.Network/applicationGateways', parameters('applicationGateways_appgw2_name')), '/backendAddressPools/seabsdipablob.z24.web.core.windows.net')]"
+                                "id": "[concat(resourceId('Microsoft.Network/applicationGateways', parameters('applicationGateways_appgw2_name')), '/backendAddressPools/secontosodipablob.z24.web.core.windows.net')]"
                             },
                             "backendHttpSettings": {
                                 "id": "[concat(resourceId('Microsoft.Network/applicationGateways', parameters('applicationGateways_appgw2_name')), '/backendHttpSettingsCollection/http-setting-backend-https')]"
