@@ -1,0 +1,24 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "resourcePrefix": {
+            "value": "ac1dvddxvnt"
+        },
+        "vnetAddressPrefix": {
+            "value": "10.111.0.0/16"
+        },
+        "vnet1Subnet1Prefix": {
+            "value": "10.111.0.0/24"
+        },
+        "vnet1Subnet1Name": {
+            "value": "vnet1Subnet1"
+        },
+        "vnet1Subnet2Prefix": {
+            "value": "10.111.1.0/24"
+        },
+        "vnet1Subnet2Name": {
+            "value": "vnet1Subnet2"
+        }
+    }
+}
